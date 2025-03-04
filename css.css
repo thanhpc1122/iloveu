@@ -1,0 +1,110 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to right, #f78ca0, #f9748f, #fd868c, #fe9a8b);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      position: relative;
+      animation: floatHeart 2.5s infinite ease-in-out;
+    }
+
+    /* Hiệu ứng nhịp tim cho tiêu đề */
+    @keyframes floatHeart {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    #ko {
+      background-color: #f44336; /* Đỏ */
+      color: #fff;
+      position: relative;
+    }
+
+    #dy {
+      background-color: #4caf50; /* Xanh lá */
+      color: #fff;
+    }
+
+    /* Hiệu ứng trang trí trái tim rơi */
+    .heart {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: -50px;
+      background-color: transparent;
+      animation: fall linear infinite;
+      animation-duration: var(--fall-duration);
+      animation-delay: var(--fall-delay);
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 10px;
+      height: 16px;
+      background-color: #fff;
+      position: absolute;
+      border-radius: 10px 10px 0 0;
+      transform: rotate(-45deg);
+      top: 2px;
+      left: 5px;
+    }
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px);
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
